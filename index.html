@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Test Naviya Proxy</h2>
+    <button onclick="ask()">Ask Naviya</button>
+    <pre id="output"></pre>
+
+    <script>
+      async function ask() {
+        const response = await fetch("https://naviya-proxy-vercel.vercel.app/api/chipp", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: "What is Naviya?" })
+        });
+
+        const data = await response.json();
+        document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+      }
+    </script>
+  </body>
+</html>
